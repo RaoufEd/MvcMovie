@@ -15,10 +15,20 @@ namespace MvcMovie.Controllers
         //    return "This is the Welcome action method...";
         //}
         // GET: /Hello/Welcome/
-        [Route("WelcomeYou/{name}/{numTimes:int}")]
-        public string Welcome(string name, int id)
+
+        //********
+
+        //[Route("WelcomeYou/{name}/{numTimes:int}")]
+        //public string Welcome(string name, int id)
+        //{
+        //    return HttpUtility.HtmlEncode("Hello " + name + ", NumTimes is: " + id);
+        //}
+
+        public ActionResult Welcome(string name, int numTimes = 1)
         {
-            return HttpUtility.HtmlEncode("Hello " + name + ", NumTimes is: " + id);
+            ViewBag.Message = "Hello " + name; //Message filled with "Hello"
+            ViewBag.NumTimes = numTimes;
+            return View("Welcome");
         }
 
     }
